@@ -7,8 +7,6 @@ Uses https://jsfiddle.net/zL4vmq0L/ from https://stackoverflow.com/questions/465
 export default function App() {
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-
       <GameInstance />
     </div>
   );

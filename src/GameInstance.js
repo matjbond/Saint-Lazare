@@ -6,22 +6,30 @@ export default class GameInstance extends React.Component {
   constructor() {
     super();
     this.state = {
-      left: 0,
-      top: 0
+      player: {
+        left: 0,
+        top: 0
+      }
     };
   }
 
   move(x, y) {
     this.setState({
-      left: this.state.left + x,
-      top: this.state.top + y
+      player: {
+        // Load the initial player data with the spread operaton (more info: https://learn.co/lessons/react-updating-state)
+        ...this.state.player,
+        // Then overwrite the location
+        left: this.state.player.left + x,
+        top: this.state.player.top + y
+      }
     });
   }
 
   render() {
     return (
       <div>
-        <Player left={this.state.left} top={this.state.top} />
+        <h1>St Lazare</h1>
+        <Player left={this.state.player.left} top={this.state.player.top} />
         <Controls move={(x, y) => this.move(x, y)} />
       </div>
     );
