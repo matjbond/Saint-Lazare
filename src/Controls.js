@@ -13,7 +13,6 @@ export default class Controls extends React.Component {
    * @param {*} event
    */
   keyPress(event) {
-    console.log(event.key);
     if (event.key === "ArrowLeft" || event.key === "a") {
       this.props.move(-10, 0);
     } else if (event.key === "ArrowUp" || event.key === "w") {
