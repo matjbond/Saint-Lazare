@@ -47,6 +47,9 @@ export default class Controls extends React.Component {
           <Button variant="light" onClick={e => this.props.move(0, 10)}>
             Down
           </Button>
+          <Button variant="light" onClick={e => this.props.toggleMF()}>
+            M/F
+          </Button>
         </ButtonToolbar>
       </div>
     );

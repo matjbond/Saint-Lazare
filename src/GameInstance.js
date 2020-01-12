@@ -10,7 +10,7 @@ const MAX_WIDTH = 250;
 const MIN_WIDTH = 0;
 const MAX_HEIGHT = 400;
 const MIN_HEIGHT = 0;
-const GAME_OVER_MESSAGES = ['Pardon!', 'Excuse Moi!', "Je suis Desole!"]
+const GAME_OVER_MESSAGES = ["Pardon!", "Excuse Moi!", "Je suis Desole!"];
 
 export default class GameInstance extends React.Component {
   constructor() {
@@ -33,8 +33,7 @@ export default class GameInstance extends React.Component {
     clearInterval(this.interval);
   }
 
-  newGame()
-  {
+  newGame() {
     return {
       player: this.newPlayer(),
       pedestrians: [
@@ -65,26 +64,26 @@ export default class GameInstance extends React.Component {
       time: 0,
       score: 0,
       max_number_of_pedestrians: 3,
-      message: '',
+      message: "",
     };
   }
 
-  newPlayer()
-  {
+  newPlayer() {
     return {
       left: 0,
       top: MAX_HEIGHT,
       width: 20,
       height: 20
-    }
+    };
   }
 
-  newPedestrian(top=0) {
+  newPedestrian(top = 0) {
     return {
       left: Math.floor(Math.random() * MAX_WIDTH),
       top: top,
       width: 20,
-      height: 20
+      height: 20,
+      female: Math.random() >= 0.5
     };
   }
 
@@ -92,23 +91,26 @@ export default class GameInstance extends React.Component {
     for (let i = 0; i < this.state.pedestrians.length; i++) {
       if (
         this.state.player.top <=
-        this.state.pedestrians[i].top + this.state.pedestrians[i].height /2
-        &&
+          this.state.pedestrians[i].top +
+            this.state.pedestrians[i].height / 2 &&
         this.state.player.top >=
-        this.state.pedestrians[i].top - this.state.pedestrians[i].height /2
+          this.state.pedestrians[i].top - this.state.pedestrians[i].height / 2
       ) {
         if (
           this.state.player.left >=
-            this.state.pedestrians[i].left - this.state.pedestrians[i].width / 2 
-            &&
+            this.state.pedestrians[i].left -
+              this.state.pedestrians[i].width / 2 &&
           this.state.player.left <=
             this.state.pedestrians[i].left + this.state.pedestrians[i].width / 2
         ) {
           this.setState(this.newGame());
           this.setState({
-            message:  GAME_OVER_MESSAGES[Math.floor(Math.random() *  GAME_OVER_MESSAGES.length)]
+            message:
+              GAME_OVER_MESSAGES[
+                Math.floor(Math.random() * GAME_OVER_MESSAGES.length)
+              ]
           });
-        } 
+        }
       }
     }
   }
@@ -164,6 +166,11 @@ export default class GameInstance extends React.Component {
     });
   }
 
+  toggleMF()
+  {
+    
+  }
+
   move(x, y) {
     let new_y = this.state.player.top + y;
     let new_x = this.state.player.left + x;
@@ -194,7 +201,7 @@ export default class GameInstance extends React.Component {
         ...this.state.player,
         // Then overwrite the location
         left: new_x,
-        top: new_y,
+        top: new_y
       }
     });
 
@@ -209,6 +216,7 @@ export default class GameInstance extends React.Component {
         width={item.width}
         left={item.left}
         top={item.top}
+        female={item.female}
       />
     ));
 
