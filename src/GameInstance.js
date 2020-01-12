@@ -64,7 +64,7 @@ export default class GameInstance extends React.Component {
       time: 0,
       score: 0,
       max_number_of_pedestrians: 3,
-      message: "",
+      message: ""
     };
   }
 
@@ -73,7 +73,8 @@ export default class GameInstance extends React.Component {
       left: 0,
       top: MAX_HEIGHT,
       width: 20,
-      height: 20
+      height: 20,
+      female: Math.random() >= 0.5
     };
   }
 
@@ -166,11 +167,6 @@ export default class GameInstance extends React.Component {
     });
   }
 
-  toggleMF()
-  {
-    
-  }
-
   move(x, y) {
     let new_y = this.state.player.top + y;
     let new_x = this.state.player.left + x;
@@ -239,6 +235,7 @@ export default class GameInstance extends React.Component {
             width={this.state.player.width}
             left={this.state.player.left}
             top={this.state.player.top}
+            female={this.state.player.female}
           />
         </div>
       </div>
