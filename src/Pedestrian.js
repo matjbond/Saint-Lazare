@@ -6,12 +6,12 @@ export default class Pedestrian extends React.Component {
       <div
         className="pedestrian"
         style={{
-          marginLeft: this.props.left + "px",
-          marginTop: this.props.top + "px"
+          left: this.props.left + "px",
+          top: this.props.top + "px",
+          height: this.props.height + "px",
+          width: this.props.width + "px"
         }}
-      >
-        Pedestrian
-      </div>
+      />
     );
   }
 }

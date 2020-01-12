@@ -1,4 +1,5 @@
 import React from "react";
+import {Button, ButtonToolbar} from "react-bootstrap";
 /*
 Uses https://stackoverflow.com/questions/37440408/how-to-detect-esc-key-press-in-react-and-how-to-handle-it/46123962
 */
@@ -33,10 +34,20 @@ export default class Controls extends React.Component {
   render() {
     return (
       <div>
-        <button onClick={e => this.props.move(-10, 0)}>Left</button>
-        <button onClick={e => this.props.move(10, 0)}>Right</button>
-        <button onClick={e => this.props.move(0, -10)}>Up</button>
-        <button onClick={e => this.props.move(0, 10)}>Down</button>
+        <ButtonToolbar>
+          <Button variant="light" onClick={e => this.props.move(-10, 0)}>
+            Left
+          </Button>
+          <Button variant="light" onClick={e => this.props.move(10, 0)}>
+            Right
+          </Button>
+          <Button variant="light" onClick={e => this.props.move(0, -10)}>
+            Up
+          </Button>
+          <Button variant="light" onClick={e => this.props.move(0, 10)}>
+            Down
+          </Button>
+        </ButtonToolbar>
       </div>
     );
   }

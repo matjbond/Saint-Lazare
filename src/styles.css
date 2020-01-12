@@ -1,12 +1,23 @@
 body {
   background-color: black;
+  color: white;
 }
 
 .App {
   font-family: sans-serif;
+}
+
+.street {
   background-color: grey;
+  position: absolute;
 }
 
 .pedestrian {
   position: absolute;
+  background-color: blue;
+}
+
+.player {
+  position: absolute;
+  background-color: red;
 }

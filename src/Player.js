@@ -4,13 +4,14 @@ export default class Player extends React.Component {
   render() {
     return (
       <div
+        className="player"
         style={{
-          marginLeft: this.props.left + "px",
-          marginTop: this.props.top + "px"
+          left: this.props.left + "px",
+          top: this.props.top + "px",
+          height: this.props.height + "px",
+          width: this.props.width + "px"
         }}
-      >
-        Thing
-      </div>
+      />
     );
   }
 }
